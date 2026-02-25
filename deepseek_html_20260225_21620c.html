@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中共中央调查局 - "大跃进"历史调查任务</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Noto Serif SC', serif;
+            background-color: #f5f0e1;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4a76a' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border: 1px solid #d4a76a;
+            position: relative;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #c0392b;
+        }
+        
+        .header h1 {
+            color: #c0392b;
+            font-size: 28px;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .header h2 {
+            color: #7f8c8d;
+            font-size: 18px;
+            font-weight: normal;
+        }
+        
+        .scene {
+            display: none;
+            margin-bottom: 30px;
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        .scene.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .scene-title {
+            color: #2c3e50;
+            border-left: 4px solid #c0392b;
+            padding-left: 15px;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+        
+        .scene-content {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #e9ecef;
+            margin-bottom: 20px;
+            min-height: 200px;
+        }
+        
+        .scene-image {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+        
+        .ai-voice {
+            font-style: italic;
+            color: #2c3e50;
+            background-color: #e8f4fc;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        .instruction {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .instruction h3 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            background-color: #c0392b;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 18px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+            font-family: 'Noto Serif SC', serif;
+        }
+        
+        .btn:hover {
+            background-color: #a93226;
+        }
+        
+        .btn:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+        
+        .choice-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .choice-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-width: 150px;
+        }
+        
+        .choice-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .report-form {
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+            margin-top: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .radio-option input {
+            width: 18px;
+            height: 18px;
+        }
+        
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-family: 'Noto Serif SC', serif;
+            resize: vertical;
+        }
+        
+        .countdown {
+            font-size: 24px;
+            color: #c0392b;
+            text-align: center;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        
+        .result {
+            background-color: #e8f6f3;
+            border: 1px solid #a3e4d7;
+            padding: 25px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        .result h3 {
+            color: #148f77;
+            margin-bottom: 15px;
+        }
+        
+        .result-image {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        .progress-bar {
+            height: 6px;
+            background-color: #ecf0f1;
+            border-radius: 3px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: #c0392b;
+            width: 0%;
+            transition: width 0.5s;
+        }
+        
+        .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .step {
+            text-align: center;
+            flex: 1;
+            color: #95a5a6;
+            font-size: 14px;
+            position: relative;
+        }
+        
+        .step.active {
+            color: #c0392b;
+            font-weight: bold;
+        }
+        
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            right: -50%;
+            width: 100%;
+            height: 2px;
+            background-color: #ecf0f1;
+            z-index: -1;
+        }
+        
+        .step.active:not(:last-child)::after {
+            background-color: #c0392b;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 16px;
+                margin: 5px;
+            }
+            
+            .choice-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .choice-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>中共中央调查局</h1>
+            <h2>"大跃进"历史调查任务 - 绝密档案</h2>
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        
+        <div class="step-indicator">
+            <div class="step active" id="step1">① 任务启动</div>
+            <div class="step" id="step2">② 历史情境</div>
+            <div class="step" id="step3">③ 调查指令</div>
+            <div class="step" id="step4">④ 收集证据</div>
+            <div class="step" id="step5">⑤ 关键抉择</div>
+            <div class="step" id="step6">⑥ 调查报告</div>
+            <div class="step" id="step7">⑦ 历史推演</div>
+        </div>
+        
+        <!-- 场景1：氛围营造，情境引入 -->
+        <div class="scene active" id="scene1">
+            <h2 class="scene-title">任务启动：时空连接中...</h2>
+            <div class="scene-content">
+                <p>当前时间：2025年</p>
+                <p>目标时间：1958年9月15日</p>
+                <p>目标地点：湖南常德红旗人民公社</p>
+                
+                <div class="ai-voice">
+                    "时空连接稳定，同志们，欢迎来到社会主义建设的火热年代。"
+                </div>
+                
+                <p>屏幕循环播放AI生成的1958年黑白街景动态图，同时播放《社会主义好》的音乐，营造大广播的社会氛围。</p>
+                
+                <div class="instruction">
+                    <h3>中共中央调查局 - 特派员守则</h3>
+                    <p>1. 保持冷静客观，不预设立场</p>
+                    <p>2. 深入群众，了解真实情况</p>
+                    <p>3. 既要保护群众热情，又要坚持实事求是</p>
+                    <p>4. 你的调查结果将影响历史评价</p>
+                </div>
+            </div>
+            <div class="btn-container">
+                <button class="btn" id="next1">启动时空传送</button>
+            </div>
+        </div>
+        
+        <!-- 场景2：时空传送，进入教学 -->
+        <div class="scene" id="scene2">
+            <h2 class="scene-title">历史情境：1958年的中国</h2>
+            <div class="scene-content">
+                <div class="ai-voice">
+                    "这是1958年的中国，六亿人民正以'敢教日月换新天'的气魄，创造着人类历史上的奇迹。但奇迹的背后，需要我们调查员的冷静眼睛。"
+                </div>
+                
+                <p>AI生成的历史场景显示：</p>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 20px 0;">
+                    <div style="flex: 1; min-width: 250px;">
+                        <h4>场景1：天安门广场群众集会</h4>
+                        <div style="background-color: #e0e0e0; height: 150px; display: flex; align-items: center; justify-content: center; border-radius: 5px;">
+                            <p style="color: #666; font-weight: bold;">横幅："鼓足干劲，力争上游，多快好省地建设社会主义"</p>
+                        </div>
+                    </div>
+                    <div style="flex: 1; min-width: 250px;">
+                        <h4>场景2：工厂车间黑板报</h4>
+                        <div style="background-color: #333; color: white; height: 150px; display: flex; align-items: center; justify-content: center; border-radius: 5px;">
+                            <p style="font-weight: bold; font-size: 18px;">"一天等于二十年"</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>全国各地正在开展"大跃进"运动，工农业生产指标不断刷新记录。在湖南常德，红旗人民公社报告水稻亩产突破万斤，被称为"高产卫星田"。</p>
+            </div>
+            <div class="btn-container">
+                <button class="btn" id="prev2">返回上一步</button>
+                <button class="btn" id="next2">接收调查指令</button>
+            </div>
+        </div>
+        
+        <!-- 场景3：调查指令 -->
+        <div class="scene" id="scene3">
+            <h2 class="scene-title">绝密指令</h2>
+            <div class="scene-content">
+                <div class="instruction">
+                    <h3>中共中央调查局绝密指令</h3>
+                    <p>特派员同志：</p>
+                    <p>近日，常德县红旗人民公社连续报告水稻亩产突破万斤、钢铁产量翻五番。</p>
+                    <p>现命你组24小时内核查以下关键问题：</p>
+                    <p>1. "高产卫星田"的真实产量与培育方法</p>
+                    <p>2. 群众对高产的真实态度与参与情况</p>
+                    <p><strong>原则：既要保护群众热情，又要坚持实事求是。</strong></p>
+                    <br>
+                    <p style="text-align: right;">中共中央调查局</p>
+                    <p style="text-align: right;">1958年9月15日</p>
+                </div>
+                
+                <p>你作为中共中央调查局的特派员，将深入红旗人民公社，调查"高产卫星田"的真实情况。</p>
+                <p>调查时限：24小时</p>
+                <p>调查方式：查阅资料、现场勘察、群众访谈</p>
+            </div>
+            <div class="btn-container">
+                <button class="btn" id="prev3">返回上一步</button>
+                <button class="btn" id="next3">开始调查取证</button>
+            </div>
+        </div>
+        
+        <!-- 场景4：收集证据 -->
+        <div class="scene" id="scene4">
+            <h2 class="scene-title">调查取证：收集历史资料</h2>
+            <div class="scene-content">
+                <p>你打开了调查终端（平板），开始查阅相关资料：</p>
+                
+                <div class="instruction" style="margin-top: 20px;">
+                    <h4>材料1：AI生成的《人民日报》头版（1958年9月10日）</h4>
+                    <p style="font-weight: bold; color: #c0392b;">红旗公社放出高产卫星！晚稻亩产达12,000斤</p>
+                    <p>老农笑言：感谢毛主席，亩产还能翻一番</p>
+                </div>
+                
+                <div class="instruction" style="margin-top: 20px;">
+                    <h4>材料2：AI生成的"田埂速写"</h4>
+                    <p>可见：稻穗异常密集、下方隐约有支撑架</p>
+                    <p>角落有老农背影，低头抽烟</p>
+                    <div style="background-color: #f0e6d3; height: 120px; display: flex; align-items: center; justify-content: center; margin-top: 10px; border-radius: 5px;">
+                        <div style="text-align: center;">
+                            <div style="background-color: #8bc34a; width: 80%; height: 60px; margin: 0 auto; border-radius: 3px; position: relative;">
+                                <div style="position: absolute; bottom: 0; width: 100%; height: 20px; background-color: #795548;"></div>
+                            </div>
+                            <p style="margin-top: 10px; font-size: 12px;">异常密集的稻穗与隐约可见的支撑架</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="instruction" style="margin-top: 20px;">
+                    <h4>材料3：采访公社书记的录音</h4>
+                    <p>AI生成的采访录音（带地方口音的普通话）：</p>
+                    <div class="ai-voice" style="margin-top: 10px;">
+                        "同志，我们的经验就是：深翻土地五尺，密植再加密植，肥料管够！群众热情高啊，白天黑夜轮班浇水，这是社会主义的优越性！"
+                    </div>
+                </div>
+                
+                <p>这些材料都显示了红旗公社水稻高产的情况，但其中有一些细节值得注意...</p>
+            </div>
+            <div class="btn-container">
+                <button class="btn" id="prev4">返回上一步</button>
+                <button class="btn" id="next4">继续调查</button>
+            </div>
+        </div>
+        
+        <!-- 场景5：关键抉择 -->
+        <div class="scene" id="scene5">
+            <h2 class="scene-title">关键抉择：匿名纸条</h2>
+            <div class="scene-content">
+                <p>正当你整理资料时，屏幕突然弹出"匿名纸条"特效：</p>
+                
+                <div class="instruction" style="background-color: #f8d7da; border-color: #f5c6cb; margin-top: 20px;">
+                    <h4 style="color: #721c24;">匿名纸条</h4>
+                    <p>调查员同志：</p>
+                    <p>今晚12点，村东头老槐树下。</p>
+                    <p>想知道稻子怎么长的，就来。</p>
+                    <p style="text-align: right;">——一个睡不着的老农</p>
+                </div>
+                
+                <div class="countdown" id="countdown">15</div>
+                
+                <p>这是一个风险与机遇并存的选择：</p>
+                <ul style="margin: 15px 0; padding-left: 20px;">
+                    <li>去：可能获得关键信息，但可能违反纪律</li>
+                    <li>不去：遵守纪律，但可能错过真相</li>
+                </ul>
+                
+                <div class="choice-container">
+                    <button class="choice-btn" id="choice-go">前往老槐树下 (√)</button>
+                    <button class="choice-btn" id="choice-stay">不去，继续现有调查 (×)</button>
+                </div>
+                
+                <div id="choice-result" style="display: none; margin-top: 20px;">
+                    <div class="ai-voice" id="farmer-voice">
+                        <!-- 这里会动态显示老农的话 -->
+                    </div>
+                    <div class="btn-container" style="margin-top: 20px;">
+                        <button class="btn" id="next5">整理调查报告</button>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-container">
+                <button class="btn" id="prev5">返回上一步</button>
+            </div>
+        </div>
+        
+        <!-- 场景6：整理资料，进行决策 -->
+        <div class="scene" id="scene6">
+            <h2 class="scene-title">整理资料，进行决策</h2>
+            <div class="scene-content">
+                <p>基于你的调查，现在需要填写调查报告：</p>
+                
+                <div class="report-form">
+                    <h3>中共中央调查局调查报告</h3>
+                    <p>关于红旗公社"高产田"的初步核查：</p>
+                    
+                    <div class="form-group">
+                        <label>调查结论：</label>
+                        <div class="radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="conclusion1" name="conclusion" value="属实">
+                                <label for="conclusion1">亩产万斤属实，是农业技术革命成果</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="conclusion2" name="conclusion" value="虚报">
+                                <label for="conclusion2">存在严重虚报，建议重新核查</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="conclusion3" name="conclusion" value="其他">
+                                <label for="conclusion3">其他：________________</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="evidence">调查依据（限50字）：</label>
+                        <textarea id="evidence" rows="3" maxlength="50" placeholder="请简要说明你的判断依据..."></textarea>
+                        <div style="text-align: right; font-size: 12px; color: #666; margin-top: 5px;">
+                            <span id="char-count">0</span>/50 字
+                        </div>
+                    </div>
+                    
+                    <div class="instruction" style="margin-top: 20px;">
+                        <p><strong>教师提醒：</strong></p>
+                        <p>1. 注意：你们的报告可能影响该县十万人的生计</p>
+                        <p>2. 既要对历史负责，也要对调查员自身安全负责</p>
+                        <p>3. 1958年的中央，希望听到什么样的声音？</p>
+                    </div>
+                </div>
+                
+                <div class="countdown" id="report-countdown">30</div>
+            </div>
+            <div class="btn-container">
+                <button class="btn" id="prev6">返回上一步</button>
+                <button class="btn" id="submit-report">提交报告</button>
+            </div>
+        </div>
+        
+        <!-- 场景7：任务结束，反思总结 -->
+        <div class="scene" id="scene7">
+            <h2 class="scene-title">历史推演与反思</h2>
+            <div class="scene-content">
+                <div class="ai-voice">
+                    "时空连接即将关闭，5、4、3、2、1——"
+                </div>
+                
+                <div id="result-content">
+                    <!-- 这里会动态显示不同的历史推演结果 -->
+                </div>
+                
+                <div class="result" style="margin-top: 30px;">
+                    <h3>历史反思</h3>
+                    <p>"大跃进"运动是中国共产党在探索社会主义建设道路过程中的一次尝试，反映了人民群众迫切要求改变经济文化落后状况的普遍愿望，但由于对经济发展规律和中国经济基本情况认识不足，急于求成，夸大了主观意志和主观努力的作用，使得以高指标、瞎指挥、浮夸风和"共产风"为主要标志的"左"倾错误严重泛滥，造成了国民经济比例严重失调，给社会主义建设带来了损失。</p>
+                    <p>历史经验告诉我们：经济建设必须遵循客观规律，坚持实事求是，一切从实际出发。</p>
+                </div>
+            </div>
+            <div class="btn-container">
+                <button class="btn" id="restart">重新开始调查</button>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>中共中央调查局历史模拟系统 - 仅供教学使用</p>
+            <p>高一历史《社会主义建设在探索中曲折发展》第26课情境教学</p>
+        </div>
+    </div>
+
+    <script>
+        // 全局变量
+        let currentScene = 1;
+        let totalScenes = 7;
+        let wentToTree = false;
+        let reportConclusion = "";
+        
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProgress();
+            
+            // 下一步按钮事件
+            document.getElementById('next1').addEventListener('click', () => showScene(2));
+            document.getElementById('next2').addEventListener('click', () => showScene(3));
+            document.getElementById('next3').addEventListener('click', () => showScene(4));
+            document.getElementById('next4').addEventListener('click', () => showScene(5));
+            
+            // 上一步按钮事件
+            document.getElementById('prev2').addEventListener('click', () => showScene(1));
+            document.getElementById('prev3').addEventListener('click', () => showScene(2));
+            document.getElementById('prev4').addEventListener('click', () => showScene(3));
+            document.getElementById('prev5').addEventListener('click', () => showScene(4));
+            document.getElementById('prev6').addEventListener('click', () => showScene(5));
+            
+            // 场景5：关键抉择
+            document.getElementById('choice-go').addEventListener('click', () => makeChoice(true));
+            document.getElementById('choice-stay').addEventListener('click', () => makeChoice(false));
+            document.getElementById('next5').addEventListener('click', () => showScene(6));
+            
+            // 场景6：提交报告
+            document.getElementById('submit-report').addEventListener('click', submitReport);
+            
+            // 场景7：重新开始
+            document.getElementById('restart').addEventListener('click', restartSimulation);
+            
+            // 字符计数器
+            document.getElementById('evidence').addEventListener('input', function() {
+                document.getElementById('char-count').textContent = this.value.length;
+            });
+        });
+        
+        // 显示场景函数
+        function showScene(sceneNum) {
+            // 隐藏所有场景
+            for (let i = 1; i <= totalScenes; i++) {
+                document.getElementById(`scene${i}`).classList.remove('active');
+                document.getElementById(`step${i}`).classList.remove('active');
+            }
+            
+            // 显示目标场景
+            document.getElementById(`scene${sceneNum}`).classList.add('active');
+            document.getElementById(`step${sceneNum}`).classList.add('active');
+            
+            // 更新当前场景
+            currentScene = sceneNum;
+            updateProgress();
+            
+            // 场景5的特殊处理：显示倒计时
+            if (sceneNum === 5) {
+                startCountdown();
+            }
+            
+            // 场景6的特殊处理：启动报告倒计时
+            if (sceneNum === 6) {
+                startReportCountdown();
+            }
+        }
+        
+        // 更新进度条
+        function updateProgress() {
+            const progress = ((currentScene - 1) / (totalScenes - 1)) * 100;
+            document.getElementById('progress').style.width = `${progress}%`;
+        }
+        
+        // 场景5倒计时
+        function startCountdown() {
+            let countdown = 15;
+            const countdownElement = document.getElementById('countdown');
+            countdownElement.textContent = countdown;
+            
+            const countdownInterval = setInterval(() => {
+                countdown--;
+                countdownElement.textContent = countdown;
+                
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    // 自动选择不去
+                    makeChoice(false);
+                }
+            }, 1000);
+        }
+        
+        // 场景6报告倒计时
+        function startReportCountdown() {
+            let countdown = 30;
+            const countdownElement = document.getElementById('report-countdown');
+            countdownElement.textContent = countdown;
+            
+            const countdownInterval = setInterval(() => {
+                countdown--;
+                countdownElement.textContent = countdown;
+                
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    // 自动提交报告（默认选择虚报）
+                    if (!document.querySelector('input[name="conclusion"]:checked')) {
+                        document.getElementById('conclusion2').checked = true;
+                        document.getElementById('evidence').value = "根据调查，稻穗异常密集且有支撑架，可能存在移栽并禾现象。";
+                        document.getElementById('char-count').textContent = 20;
+                    }
+                    submitReport();
+                }
+            }, 1000);
+        }
+        
+        // 做出选择（是否去老槐树）
+        function makeChoice(go) {
+            wentToTree = go;
+            
+            // 隐藏选择按钮
+            document.getElementById('choice-go').style.display = 'none';
+            document.getElementById('choice-stay').style.display = 'none';
+            
+            // 显示结果
+            const resultDiv = document.getElementById('choice-result');
+            const farmerVoice = document.getElementById('farmer-voice');
+            
+            if (go) {
+                farmerVoice.innerHTML = `
+                    <p>你来到了老槐树下，一个老农悄悄告诉你：</p>
+                    <p style="font-weight: bold;">"娃娃，俺只说三点，你记着：</p>
+                    <p>一、那亩产是把20亩快熟的稻子移到1亩地里</p>
+                    <p>二、下面搭的是木板架子，县委书记来看时，人站在架子上</p>
+                    <p>三、公社说了，谁讲实话就是给社会主义抹黑……俺走了。"</p>
+                `;
+            } else {
+                farmerVoice.innerHTML = `
+                    <p>你决定不去老槐树下，继续通过官方渠道调查。</p>
+                    <p>第二天，你看到公社书记组织群众进行"高产经验交流"，现场气氛热烈，但你也注意到有几个老农沉默不语。</p>
+                `;
+            }
+            
+            resultDiv.style.display = 'block';
+        }
+        
+        // 提交报告
+        function submitReport() {
+            // 获取选择的结论
+            const selectedConclusion = document.querySelector('input[name="conclusion"]:checked');
+            if (!selectedConclusion) {
+                alert('请选择一个调查结论！');
+                return;
+            }
+            
+            reportConclusion = selectedConclusion.value;
+            
+            // 获取证据文本
+            const evidenceText = document.getElementById('evidence').value.trim();
+            if (evidenceText === '') {
+                alert('请填写调查依据！');
+                return;
+            }
+            
+            // 显示场景7
+            showScene(7);
+            
+            // 根据选择显示不同的历史推演结果
+            const resultContent = document.getElementById('result-content');
+            
+            if (reportConclusion === '虚报') {
+                resultContent.innerHTML = `
+                    <div class="result">
+                        <h3>历史推演：如实上报问题</h3>
+                        <p>你的报告指出红旗公社存在严重虚报问题，建议重新核查。</p>
+                        
+                        <div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 20px 0;">
+                            <div style="flex: 1; min-width: 200px;">
+                                <h4>画面1：县委会议</h4>
+                                <div style="background-color: #e0e0e0; height: 120px; display: flex; align-items: center; justify-content: center; border-radius: 5px;">
+                                    <p style="color: #666; text-align: center;">领导皱眉阅读报告<br>表情严肃</p>
+                                </div>
+                            </div>
+                            <div style="flex: 1; min-width: 200px;">
+                                <h4>画面2：收到警告信</h4>
+                                <div style="background-color: #f8d7da; height: 120px; display: flex; align-items: center; justify-content: center; border-radius: 5px;">
+                                    <p style="color: #721c24; text-align: center;">"政治觉悟有待提高"<br>你受到批评</p>
+                                </div>
+                            </div>
+                            <div style="flex: 1; min-width: 200px;">
+                                <h4>画面3：1959年春</h4>
+                                <div style="background-color: #d1ecf1; height: 120px; display: flex; align-items: center; justify-content: center; border-radius: 5px;">
+                                    <p style="color: #0c5460; text-align: center;">该县征粮指标下调5%<br>虚报产量有所减少</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p><strong>历史数据：</strong>虚报产量现象有所减少，但调查员面临"右倾保守"的政治压力增大。</p>
+                    </div>
+                `;
+            } else if (reportConclusion === '属实') {
+                resultContent.innerHTML = `
+                    <div class="result">
+                        <h3>历史推演：肯定成绩为主</h3>
+                        <p>你的报告肯定了红旗公社的"高产卫星田"，认为是农业技术革命成果。</p>
+                        
+                        <div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 20px 0;">
+                            <div style="flex: 1; min-width: 200px;">
+                                <h4>画面1：庆功大会</h4>
+                                <div style="background-color: #d4edda; height: 120px; display: flex; align-items: center; justify-content: center; border-radius: 5px;">
+                                    <p style="color: #155724; text-align: center;">你获得"社会主义建设突击手"锦旗</p>
+                                </div>
+                            </div>
+                            <div style="flex: 1; min-width: 200px;">
+                                <h4>画面2：邻县学习</h4>
+                                <div style="background-color: #fff3cd; height: 120px; display: flex; align-items: center; justify-content: center; border-radius: 5px;">
+                                    <p style="color: #856404; text-align: center;">邻县来学习"先进经验"<br>浮夸风蔓延</p>
+                                </div>
+                            </div>
+                            <div style="flex: 1; min-width: 200px;">
+                                <h4>画面3：1960年冬</h4>
+                                <div style="background-color: #f8d7da; height: 120px; display: flex; align-items: center; justify-content: center; border-radius: 5px;">
+                                    <p style="color: #721c24; text-align: center;">粮库空虚记录<br>粮食不足，人民生活困难</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p><strong>历史数据：</strong>浮夸风继续蔓延，导致粮食征购指标过高，1960-1962年出现严重经济困难。</p>
+                    </div>
+                `;
+            } else {
+                resultContent.innerHTML = `
+                    <div class="result">
+                        <h3>历史推演：其他结论</h3>
+                        <p>你提出了不同于常规的调查报告...</p>
+                        <p>历史是复杂的，你的选择反映了历史调查中的多元思考。</p>
+                        <p>在真实历史中，也有不少干部在"大跃进"期间既想保护群众积极性，又试图反映真实情况，处于两难境地。</p>
+                    </div>
+                `;
+            }
+            
+            // 添加选择总结
+            const summary = document.createElement('div');
+            summary.className = 'instruction';
+            summary.style.marginTop = '20px';
+            summary.innerHTML = `
+                <h4>你的调查总结</h4>
+                <p><strong>结论：</strong>${getConclusionText(reportConclusion)}</p>
+                <p><strong>依据：</strong>${evidenceText}</p>
+                <p><strong>是否接触匿名信息：</strong>${wentToTree ? '是（听取了老农的实话）' : '否（仅通过官方渠道）'}</p>
+            `;
+            resultContent.appendChild(summary);
+        }
+        
+        // 获取结论文本
+        function getConclusionText(conclusion) {
+            switch(conclusion) {
+                case '属实': return '亩产万斤属实，是农业技术革命成果';
+                case '虚报': return '存在严重虚报，建议重新核查';
+                default: return '其他';
+            }
+        }
+        
+        // 重新开始模拟
+        function restartSimulation() {
+            // 重置变量
+            currentScene = 1;
+            wentToTree = false;
+            reportConclusion = "";
+            
+            // 重置表单
+            document.querySelectorAll('input[name="conclusion"]').forEach(input => input.checked = false);
+            document.getElementById('evidence').value = '';
+            document.getElementById('char-count').textContent = '0';
+            
+            // 重置场景5的UI
+            document.getElementById('choice-go').style.display = 'inline-block';
+            document.getElementById('choice-stay').style.display = 'inline-block';
+            document.getElementById('choice-result').style.display = 'none';
+            
+            // 显示场景1
+            showScene(1);
+        }
+    </script>
+</body>
+</html>
